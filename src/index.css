@@ -1,0 +1,185 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@400..700&family=Space+Grotesk:wght@400..700&family=Rajdhani:wght@400..700&family=Outfit:wght@100..900&display=swap');
+
+@theme {
+  /* Premium Esports Black & Gold Theme */
+  --color-gold: #D4AF37;
+  --color-amber: #FFB547;
+  --color-neon-red: #FF1E1E;
+
+  /* Background System */
+  --color-bg-dark: #0C0C0F;
+  --color-bg-mid: #141418;
+  --color-bg-light: #1A1A1F;
+  --color-card: #16161B;
+
+  /* Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #D6D6D6;
+  --color-text-muted: #8A8A8A;
+  --color-text-highlight: #D4AF37;
+
+  /* Legacy aliases for migration (mapped to new system) */
+  --color-crimson: #D4AF37;
+  /* Mapping old primary to new gold */
+  --color-purple: #FFB547;
+  /* Mapping old secondary to new amber */
+  --color-esports-dark: #0C0C0F;
+  --color-esports-card: #16161B;
+
+  /* Typography */
+  --font-heading: 'Orbitron', 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-dashboard: 'Space Grotesk', sans-serif;
+  --font-button: 'Rajdhani', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+    /* 160px */
+  }
+
+  body {
+    background: linear-gradient(to bottom, var(--color-bg-dark), var(--color-bg-mid));
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Performance-Optimized Utilities */
+.transition-fast {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card Hover Effect - Lightweight */
+.card-lift {
+  transition: transform 0.2s ease-out;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Button Effects - GPU Optimized */
+.btn-glow {
+  transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+.btn-glow:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+
+.btn-glow:active {
+  transform: scale(0.98);
+}
+
+/* Focus Ring - Gold */
+.focus-ring-gold:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-dark), 0 0 0 4px var(--color-gold);
+}
+
+/* Subtle Glow Effects */
+.glow-gold {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.glow-amber {
+  box-shadow: 0 0 15px rgba(255, 181, 71, 0.15);
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-amber));
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(to bottom, var(--color-bg-dark), var(--color-bg-mid), var(--color-bg-light));
+}
+
+/* Text Gradients */
+.text-gradient-gold {
+  background: linear-gradient(to right, #D4AF37, #FFB547, #D4AF37);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 7s ease-in-out 3s infinite;
+}
